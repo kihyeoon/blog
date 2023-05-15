@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
 
@@ -15,17 +16,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={sans.className}>
-      <body className="container mx-auto flex min-h-screen flex-col justify-between">
+      <body className="container mx-auto flex min-h-screen flex-col">
         <header className="flex justify-between">
-          <h1 className="text-2xl font-bold">{"kihyeon's blog"}</h1>
+          <Link href="/">
+            <h1 className="text-2xl font-bold">{"kihyeon's blog"}</h1>
+          </Link>
           <nav className="flex space-x-4">
-            <div>home</div>
-            <div>about</div>
-            <div>posts</div>
-            <div>contact</div>
+            <Link href="/">home</Link>
+            <Link href="/about">about</Link>
+            <Link href="/posts">posts</Link>
+            <Link href="/contact">contact</Link>
           </nav>
         </header>
-        {children}
+        <main className="flex grow flex-col">{children}</main>
         <footer className="bg-black text-center text-white">
           ki hyeon | All Right Reserved.
         </footer>
