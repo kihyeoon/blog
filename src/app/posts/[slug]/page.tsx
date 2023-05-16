@@ -16,17 +16,16 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
   if (!post) {
     notFound();
   }
-
   const { title, path, date, description } = post;
 
   return (
-    <article className="overflow-hidden rounded-xl bg-gray-100 shadow-lg">
+    <article className="mx-auto max-w-3xl overflow-hidden rounded-xl bg-gray-100 shadow-lg">
       <Image
         src={`/images/posts/${path}.png`}
         alt={title}
         width={760}
         height={420}
-        className="max-h-[500px] w-full"
+        className="max-h-[400px] w-full object-cover"
       />
       <section className="flex flex-col p-4">
         <div className="flex items-center gap-1 self-end">
