@@ -2,22 +2,14 @@ import PostCard from "@/components/PostCard";
 import { Post } from "@/service/posts";
 
 interface Props {
-  featuredPosts: Post[];
+  posts: Post[];
 }
 
-export default function PostsGrid({ featuredPosts }: Props) {
+export default function PostsGrid({ posts }: Props) {
   return (
-    <ul className="grid grid-cols-4 gap-4">
-      {featuredPosts.map((post) => (
-        <PostCard
-          key={post.path}
-          title={post.title}
-          description={post.description}
-          date={post.date}
-          category={post.category}
-          path={post.path}
-          featured={post.featured}
-        />
+    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {posts.map((post) => (
+        <PostCard key={post.path} post={post} />
       ))}
     </ul>
   );
