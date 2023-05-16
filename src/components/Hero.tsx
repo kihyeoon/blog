@@ -17,7 +17,7 @@ export default function Hero() {
       <h3>Front-end Developer</h3>
       <p>{"UX를 개선해 비즈니스 성장에 기여합니다"}</p>
       <Link href="/contact">
-        <button className="mt-2 rounded bg-blue-400 p-1 font-semibold">
+        <button className="mt-2 rounded bg-blue-500 px-2 py-1 font-semibold text-white">
           Contact Me
         </button>
       </Link>
