@@ -1,3 +1,4 @@
+import MarkdownViewer from "@/components/MarkdownViewer";
 import { getContent as getPostContent, getPost } from "@/service/posts";
 import { notFound } from "next/navigation";
 
@@ -18,7 +19,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
   return (
     <>
       <h2>{post.title}</h2>
-      <pre>{content}</pre>
+      <MarkdownViewer content={content} />
     </>
   );
 }
