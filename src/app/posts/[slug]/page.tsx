@@ -1,5 +1,6 @@
 import PostContent from "@/components/PostContent";
-import { getContent as getPostContent, getPost } from "@/service/posts";
+import AdjacentPostCard from "@/components/AdjacentPostCard";
+import { getPostContent, getPost, getAdjacentPosts } from "@/service/posts";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -12,6 +13,8 @@ interface Props {
 export default async function PostDetailPage({ params: { slug } }: Props) {
   const post = await getPost(slug);
   const content = await getPostContent(slug);
+  const { prevPost, nextPost } = await getAdjacentPosts(slug);
+
   if (!post) {
     notFound();
   }
@@ -27,6 +30,10 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
         className="max-h-[400px] w-full object-cover"
       />
       <PostContent post={post} content={content} />
+      <nav className="mt-8 flex max-w-3xl bg-black">
+        {prevPost && <AdjacentPostCard post={prevPost} type="prev" />}
+        {nextPost && <AdjacentPostCard post={nextPost} type="next" />}
+      </nav>
     </article>
   );
 }
