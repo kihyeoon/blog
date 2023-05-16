@@ -10,17 +10,18 @@ export default function PostCard({
   featured,
 }: Post) {
   return (
-    <div className="flex w-1/5 flex-col justify-center bg-slate-400">
+    <li className="flex h-full w-full flex-col justify-center rounded-md shadow-md">
       <Image
         src={`/images/posts/${path}.png`}
         alt="post thumnail"
         width={400}
         height={200}
+        className="rounded-t-md"
       />
-      <p>{date}</p>
+      <p className="text-left">{date}</p>
       <p>{title}</p>
       <p>{description}</p>
       <p>{category}</p>
-    </div>
+    </li>
   );
 }
