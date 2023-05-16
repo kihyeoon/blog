@@ -12,7 +12,7 @@ export default function PostCard({
   return (
     <li>
       <Link href={`/posts/${path}`}>
-        <article className="overflow-hidden rounded-md shadow-md">
+        <article className="overflow-hidden rounded-md bg-white shadow-md hover:shadow-lg">
           <Image
             src={`/images/posts/${path}.png`}
             alt="post thumnail"
@@ -21,7 +21,7 @@ export default function PostCard({
             className="w-full"
           />
           <div className="flex flex-col items-center p-3">
-            <time className="self-end">{date}</time>
+            <time className="self-end text-gray-600">{date}</time>
             <h3 className="text-lg font-bold">{title}</h3>
             <p className="w-full truncate">{description}</p>
             <span className="my-2 rounded-lg bg-green-100 px-2 text-sm">

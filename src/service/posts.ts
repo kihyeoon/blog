@@ -19,10 +19,15 @@ export async function getPosts(): Promise<Post[]> {
 
 export async function getPost(path: string): Promise<Post | undefined> {
   const posts = await getPosts();
-  return posts.find((product) => product.path === path);
+  return posts.find((post) => post.path === path);
 }
 
 export async function getFeaturedPosts(): Promise<Post[]> {
   const posts = await getPosts();
-  return posts.filter((product) => product.featured);
+  return posts.filter((post) => post.featured);
+}
+
+export async function getNonFeaturedPosts(): Promise<Post[]> {
+  const posts = await getPosts();
+  return posts.filter((post) => !post.featured);
 }
