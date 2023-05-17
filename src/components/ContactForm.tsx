@@ -47,10 +47,10 @@ export default function ContactForm() {
         className="mt-4 flex w-full flex-col gap-2 rounded-md bg-slate-300 p-5"
         onSubmit={onSubmit}
       >
-        <label htmlFor="email">Email</label>
+        <label htmlFor="from">Email</label>
         <input
-          id="email"
-          name="email"
+          id="from"
+          name="from"
           type="email"
           onChange={onChange}
           value={formData.from}
