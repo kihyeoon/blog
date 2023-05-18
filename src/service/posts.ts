@@ -1,5 +1,6 @@
 import path from "path";
 import { readFile } from "fs/promises";
+import { cache } from "react";
 
 export interface Post {
   title: string;
@@ -15,12 +16,13 @@ interface AdjacentPosts {
   nextPost: Post | null;
 }
 
-export async function getPosts(): Promise<Post[]> {
+export const getPosts = cache(async () => {
+  console.log("getPosts");
   const filePath = path.join(process.cwd(), "data", "posts.json");
   return readFile(filePath, "utf-8")
     .then<Post[]>(JSON.parse)
     .then((posts) => posts.sort((a, b) => (a.date > b.date ? -1 : 1)));
-}
+});
 
 export async function getPost(path: string): Promise<Post | undefined> {
   const posts = await getPosts();

@@ -1,6 +1,11 @@
 import PostContent from "@/components/PostContent";
 import AdjacentPostCard from "@/components/AdjacentPostCard";
-import { getPostContent, getPost, getAdjacentPosts } from "@/service/posts";
+import {
+  getPostContent,
+  getPost,
+  getAdjacentPosts,
+  getFeaturedPosts,
+} from "@/service/posts";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -44,4 +49,9 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
       </nav>
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = await getFeaturedPosts();
+  return posts.map(({ path }) => ({ slug: path }));
 }
