@@ -2,6 +2,11 @@ import ContactForm from "@/components/ContactForm";
 import { AiFillGithub } from "react-icons/ai";
 import { FaBlog } from "react-icons/fa";
 
+export const metadata = {
+  title: "Contact me",
+  description: "기현에게 연락하기",
+};
+
 const H2_CLASS = "text-lg font-bold";
 const links = [
   {

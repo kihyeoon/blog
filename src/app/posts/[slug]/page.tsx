@@ -10,6 +10,14 @@ interface Props {
   };
 }
 
+export async function generateMetadata({ params: { slug } }: Props) {
+  const post = await getPost(slug);
+  return {
+    title: `${post?.title}`,
+    description: post?.description,
+  };
+}
+
 export default async function PostDetailPage({ params: { slug } }: Props) {
   const post = await getPost(slug);
   const content = await getPostContent(slug);
