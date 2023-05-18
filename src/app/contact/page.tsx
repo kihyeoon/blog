@@ -21,7 +21,7 @@ const links = [
   },
 ];
 
-export default function AboutPage() {
+export default function ContactPage() {
   return (
     <section className="mx-auto flex max-w-xl flex-col items-center">
       <div className="mb-4 flex flex-col items-center">
