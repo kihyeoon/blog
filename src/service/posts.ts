@@ -24,9 +24,11 @@ export const getPosts = cache(async () => {
     .then((posts) => posts.sort((a, b) => (a.date > b.date ? -1 : 1)));
 });
 
-export async function getPost(path: string): Promise<Post | undefined> {
+export async function getPost(path: string) {
   const posts = await getPosts();
-  return posts.find((post) => post.path === path);
+  const post = posts.find((post) => post.path === path);
+  if (!post) throw new Error(`포스트를 찾을 수 없음`);
+  return post;
 }
 
 export async function getFeaturedPosts(): Promise<Post[]> {

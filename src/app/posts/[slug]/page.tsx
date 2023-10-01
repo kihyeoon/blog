@@ -16,10 +16,10 @@ interface Props {
 }
 
 export async function generateMetadata({ params: { slug } }: Props) {
-  const post = await getPost(slug);
+  const { title, description } = await getPost(slug);
   return {
-    title: `${post?.title}`,
-    description: post?.description,
+    title: title,
+    description: description,
   };
 }
 

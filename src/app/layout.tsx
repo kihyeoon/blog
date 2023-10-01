@@ -8,6 +8,9 @@ const sans = Open_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: { default: "기현의 블로그", template: "기현의 블로그 | %s" },
   description: "프론트엔드 개발자 기현의 블로그입니다.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
