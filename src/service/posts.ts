@@ -17,7 +17,6 @@ interface AdjacentPosts {
 }
 
 export const getPosts = cache(async () => {
-  console.log("getPosts");
   const filePath = path.join(process.cwd(), "data", "posts.json");
   return readFile(filePath, "utf-8")
     .then<Post[]>(JSON.parse)

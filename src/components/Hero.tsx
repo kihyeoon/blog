@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import profileImage from "/public/images/profile.jpeg";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
@@ -17,9 +18,7 @@ export default function Hero() {
       <h3>Front-end Developer</h3>
       <p>{"UX를 개선해 비즈니스 성장에 기여합니다"}</p>
       <Link href="/contact">
-        <button className="mt-2 rounded bg-blue-500 px-2 py-1 font-semibold text-white">
-          Contact Me
-        </button>
+        <Button>Contact Me</Button>
       </Link>
     </section>
   );
